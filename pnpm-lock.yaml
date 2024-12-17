@@ -26,6 +26,9 @@ importers:
       monaco-editor:
         specifier: ^0.52.2
         version: 0.52.2
+      monaco-editor-auto-typings:
+        specifier: ^0.4.6
+        version: 0.4.6(monaco-editor@0.52.2)
       tailwindcss:
         specifier: 4.0.0-beta.5
         version: 4.0.0-beta.5
@@ -2189,6 +2192,11 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
+
+  monaco-editor-auto-typings@0.4.6:
+    resolution: {integrity: sha512-yN6yP2oQJkpyZtUyi5qT9AjZLILrTZWOFny7Km2yNiPMPqOWq/znkTS4b5Yk1sHumSaLJUw5m1EPKiopRqtEpA==}
+    peerDependencies:
+      monaco-editor: '*'
 
   monaco-editor@0.52.2:
     resolution: {integrity: sha512-GEQWEZmfkOGLdd3XK8ryrfWz3AIP8YymVXiPHEdewrUq7mh0qrKrfHLNCXcbB6sTnMLnOZ3ztSiKcciFUkIJwQ==}
@@ -5085,6 +5093,10 @@ snapshots:
       yallist: 4.0.0
 
   mkdirp@1.0.4: {}
+
+  monaco-editor-auto-typings@0.4.6(monaco-editor@0.52.2):
+    dependencies:
+      monaco-editor: 0.52.2
 
   monaco-editor@0.52.2: {}
 
