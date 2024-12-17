@@ -53,9 +53,7 @@ Many Monaco related objects often implement the `.dispose()` method. This method
 - Create a Monarch tokenizer for a new programming language [in the Monarch playground](https://microsoft.github.io/monaco-editor/monarch.html).
 - Ask questions on [StackOverflow](https://stackoverflow.com/questions/tagged/monaco-editor)! Search open and closed issues, there are a lot of tips in there!
 
-
 ## FAQ
-
 
 > Note: If the extension is fully based on the [LSP](https://microsoft.github.io/language-server-protocol/) and if the language server is authored in JavaScript, then it would be possible.
 
@@ -70,7 +68,6 @@ It is an AMD loader that we use in VS Code. Yes.
 ❓ **I see the warning "Could not create web worker". What should I do?**
 
 HTML5 does not allow pages loaded on `file://` to create web workers. Please load the editor with a web server on `http://` or `https://` schemes.
-
 
 ## Contributing / Local Development
 

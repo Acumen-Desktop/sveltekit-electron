@@ -1,6 +1,6 @@
 interface Window {
-  api: {
-    preload: () => void;
-    main: () => Promise<void>;
-  }
+	api: {
+		preload: () => void;
+		main: () => Promise<void>;
+	};
 }

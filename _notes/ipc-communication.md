@@ -15,16 +15,19 @@ Renderer Process (SvelteKit)
 ## Key Files
 
 1. `src/routes/+page.svelte`
+
    - UI components with buttons for testing IPC
    - Handles renderer-side API calls
    - Includes error handling for non-Electron environments
 
 2. `electron/preload/preload.ts`
+
    - Sets up the secure bridge between renderer and main processes
    - Exposes limited API via contextBridge
    - Handles IPC communication with error handling
 
 3. `electron/main/main.ts`
+
    - Main process setup and IPC handlers
    - Manages window creation and lifecycle
    - Handles main process privileges
@@ -36,10 +39,12 @@ Renderer Process (SvelteKit)
 ## IPC Communication Flow
 
 1. Renderer Process (SvelteKit)
+
    - Calls `window.api.preload()` or `window.api.main()`
    - Handles errors if API is not available
 
 2. Preload Script
+
    - Receives calls from renderer
    - Routes calls to appropriate IPC channels
    - Provides error handling and logging

@@ -1,5 +1,5 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron';
-import { join } from 'path';
+import { join } from 'node:path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import serve from 'electron-serve';
 import icon from '../../resources/icon.png?asset';
@@ -27,8 +27,8 @@ async function createWindow(): Promise<void> {
 	});
 
 	// Load the remote URL for development or the local html file for production.
-	if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-		await mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL']);
+	if (is.dev && process.env.ELECTRON_RENDERER_URL) {
+		await mainWindow.loadURL(process.env.ELECTRON_RENDERER_URL);
 	} else {
 		await loadURL(mainWindow);
 	}

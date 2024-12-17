@@ -1,6 +1,15 @@
 <script lang="ts">
 	import MonacoEditor from '$lib/components/editor/MonacoEditor.svelte';
+	import Filemanager from '$lib/components/editor/Filemanager.svelte';
 	import * as Resizable from '$lib/components/ui/resizable/index.js';
+
+	// const desktopPath = window.api.getDesktopPath();
+	// const electronFilesPath = window.api.getElectronFilesPath();
+	// console.log(
+	// 	'Line 8 - editor.svelte: desktopPath, electronFilesPath',
+	// 	desktopPath,
+	// 	electronFilesPath
+	// );
 </script>
 
 <header>
@@ -10,9 +19,7 @@
 	<Resizable.PaneGroup direction="horizontal" class="h-screen w-full">
 		<!-- Left Pane (Explorer) -->
 		<Resizable.Pane id="explorer" defaultSize={20} minSize={1} maxSize={50}>
-			<div class="h-full bg-background p-4">
-				<span class="font-semibold">Explorer</span>
-			</div>
+			<Filemanager />
 		</Resizable.Pane>
 
 		<Resizable.Handle withHandle />
