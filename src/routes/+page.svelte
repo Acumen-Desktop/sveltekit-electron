@@ -1,6 +1,8 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index.js';
 
+	import { goto } from '$app/navigation';
+
 	/**
 	 * logs from the preload context. To see the logs, open DevTools Console (F12)
 	 * to learn more about preload context, see https://www.electronjs.org/docs/latest/tutorial/tutorial-preload
@@ -65,6 +67,26 @@
 					onclick={logFromMain}
 				>
 					Main Process Log
+				</button>
+			</Card.Content>
+			<Card.Footer>
+				<span class="text-sm text-center opacity-75">
+					Check electron/main/main.ts and Main Process logs
+				</span>
+			</Card.Footer>
+		</Card.Root>
+
+		<Card.Root class="w-80">
+			<Card.Header>
+				<Card.Title>Open Monaco Editor</Card.Title>
+				<Card.Description>Test monaco editor</Card.Description>
+			</Card.Header>
+			<Card.Content>
+				<button
+					class="w-full px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 active:scale-95 transition-transform cursor-pointer"
+					onclick={() => goto('/editor')}
+				>
+					Open Monaco Editor
 				</button>
 			</Card.Content>
 			<Card.Footer>
