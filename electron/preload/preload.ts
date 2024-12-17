@@ -1,14 +1,6 @@
-import { app, contextBridge, ipcRenderer } from 'electron';
-import { electronAPI } from '@electron-toolkit/preload';
-
-import { join } from 'node:path';
-import * as fs from 'node:fs';
-
-const desktopPath = app.getPath('desktop');
-const electronFilesPath = join(desktopPath, 'electron-files');
-if (!fs.existsSync(electronFilesPath)) {
-	fs.mkdirSync(electronFilesPath);
-}
+import { contextBridge, ipcRenderer } from 'electron';
+// import { join } from 'node:path';
+// import * as fs from 'node:fs';
 
 // API exposed to renderer process
 const api = {
@@ -21,22 +13,29 @@ const api = {
 		} catch (error) {
 			console.error('Line 11 - preload.ts: Error calling main function:', error);
 		}
+	},
+	getDesktopPath: () => {
+		return ipcRenderer.invoke('get-desktop-path');
+	},
+	getElectronFilesPath: () => {
+		return ipcRenderer.invoke('get-electron-files-path');
 	}
 };
 
 // Expose the API to the renderer process
 contextBridge.exposeInMainWorld('api', api);
-contextBridge.exposeInMainWorld('api', {
-	getDesktopPath: () => desktopPath,
-	getElectronFilesPath: () => electronFilesPath
-});
 
-if (process.contextIsolated) {
-	try {
-		contextBridge.exposeInMainWorld('electron', electronAPI);
-	} catch (error) {
-		console.error('Line 38 - preload.ts: Error exposing electronAPI:', error);
+// Expose electron APIs if needed
+contextBridge.exposeInMainWorld('electron', {
+	ipcRenderer: {
+		send: (channel: string, ...args: unknown[]) => ipcRenderer.send(channel, ...args),
+		on: (channel: string, func: (...args: unknown[]) => void) => {
+			const subscription = (_event: unknown, ...args: unknown[]) => func(...args);
+			ipcRenderer.on(channel, subscription);
+			return () => {
+				ipcRenderer.removeListener(channel, subscription);
+			};
+		},
+		invoke: (channel: string, ...args: unknown[]) => ipcRenderer.invoke(channel, ...args)
 	}
-} else {
-	window.electron = electronAPI;
-}
+});

@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import serve from 'electron-serve';
 import icon from '../../resources/icon.png?asset';
+import { getDesktopPath, getElectronFilesPath } from './utils/file-paths';
 
 const loadURL = serve({
 	directory: 'out/svelte',
@@ -77,6 +78,14 @@ async function main() {
 		ipcMain.handle('main-function', () => {
 			console.log('Line 58 - main.ts: Function called from renderer process via IPC');
 			return Promise.resolve(); // Return a promise to properly handle async operation
+		});
+
+		ipcMain.handle('get-desktop-path', () => {
+			return getDesktopPath();
+		});
+
+		ipcMain.handle('get-electron-files-path', () => {
+			return getElectronFilesPath();
 		});
 	} catch (error) {
 		console.error('Failed to initialize app:', error);

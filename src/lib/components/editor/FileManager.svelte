@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FileManager } from 'wx-svelte-filemanager';
+	import { Filemanager } from 'wx-svelte-filemanager';
 
 	const rawdata = [
 		{
@@ -37,4 +37,4 @@
 	];
 </script>
 
-<FileManager data={rawdata} />
+<Filemanager data={rawdata} />
