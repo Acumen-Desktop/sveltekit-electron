@@ -9,6 +9,7 @@
 3. Follow the principle of least privilege for system access
 4. Use contextIsolation and sandbox features
 5. Use PNPM as the package manager
+6. Ignore any files that start with "OLD", as they are temporary and will be removed.
 
 # Svelte 5 Complete Overview
 
