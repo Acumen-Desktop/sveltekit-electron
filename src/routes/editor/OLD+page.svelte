@@ -9,36 +9,38 @@
 
 	// Initialize editor when component mounts
 	onMount(() => {
-		if (editorContainer) {
-			editorInstance = monaco.editor.create(editorContainer, {
-				value: '// Type your code here\nfunction hello() {\n\tconsole.log("Hello world!");\n}',
-				language: 'typescript',
-				theme: 'vs-dark',
-				automaticLayout: true,
-				minimap: { enabled: false },
-				fontSize: 14,
-				lineNumbers: 'on',
-				roundedSelection: false,
-				scrollBeyondLastLine: false,
-				readOnly: false,
-				cursorStyle: 'line',
-				tabSize: 2,
-				wordWrap: 'on'
-			});
-
-			// Add window resize handler
-			const resizeEditor = () => {
-				if (editorInstance) {
-					editorInstance.layout();
-				}
-			};
-			window.addEventListener('resize', resizeEditor);
-
-			// Cleanup resize handler
-			return () => {
-				window.removeEventListener('resize', resizeEditor);
-			};
+		if (!editorContainer) {
+			return () => {}; // Return empty cleanup function if container is not available
 		}
+
+		editorInstance = monaco.editor.create(editorContainer, {
+			value: '// Type your code here\nfunction hello() {\n\tconsole.log("Hello world!");\n}',
+			language: 'typescript',
+			theme: 'vs-dark',
+			automaticLayout: true,
+			minimap: { enabled: false },
+			fontSize: 14,
+			lineNumbers: 'on',
+			roundedSelection: false,
+			scrollBeyondLastLine: false,
+			readOnly: false,
+			cursorStyle: 'line',
+			tabSize: 2,
+			wordWrap: 'on'
+		});
+
+		// Add window resize handler
+		const resizeEditor = () => {
+			if (editorInstance) {
+				editorInstance.layout();
+			}
+		};
+		window.addEventListener('resize', resizeEditor);
+
+		// Cleanup resize handler
+		return () => {
+			window.removeEventListener('resize', resizeEditor);
+		};
 	});
 
 	// Cleanup when component is destroyed

@@ -15,7 +15,8 @@
 			height: 100%;
 		}
 
-		body {
+		body,
+		#mainApp {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -25,12 +26,12 @@
 		}
 	</style>
 	<meta http-equiv="Content-Security-Policy"
-		content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' ws: wss:;" />
+		content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdn.svar.dev; font-src 'self' https://cdn.svar.dev; img-src 'self' data: https:; connect-src 'self' ws: wss:;" />
 	%sveltekit.head%
 </head>
 
 <body data-sveltekit-preload-data="hover">
-	<div style="display: contents">%sveltekit.body%</div>
+	<div id="mainApp">%sveltekit.body%</div>
 </body>
 
 </html>

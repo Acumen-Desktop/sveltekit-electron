@@ -31,7 +31,13 @@
 		"electron-updater": "^6.3.9",
 		"monaco-editor": "^0.52.2",
 		"monaco-editor-auto-typings": "^0.4.6",
-		"tailwindcss": "4.0.0-beta.5"
+		"tailwindcss": "4.0.0-beta.5",
+		"wx-svelte-core": "2.0.0-beta-2",
+		"wx-svelte-filemanager": "2.0.0-beta-3",
+		"wx-svelte-gantt": "2.0.0-beta-3",
+		"wx-svelte-grid": "2.0.0-beta-3",
+		"wx-svelte-menu": "2.0.0-beta-2",
+		"wx-svelte-toolbar": "2.0.0-beta-2"
 	},
 	"devDependencies": {
 		"@electron-toolkit/tsconfig": "^1.0.1",

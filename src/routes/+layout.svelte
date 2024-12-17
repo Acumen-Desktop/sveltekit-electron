@@ -1,5 +1,8 @@
 <script>
 	import '../app.css';
+	import { WillowDark } from 'wx-svelte-core';
 </script>
 
-<slot />
+<WillowDark>
+	<slot />
+</WillowDark>

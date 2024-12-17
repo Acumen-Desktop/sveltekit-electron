@@ -32,6 +32,24 @@ importers:
       tailwindcss:
         specifier: 4.0.0-beta.5
         version: 4.0.0-beta.5
+      wx-svelte-core:
+        specifier: 2.0.0-beta-2
+        version: 2.0.0-beta-2
+      wx-svelte-filemanager:
+        specifier: 2.0.0-beta-3
+        version: 2.0.0-beta-3
+      wx-svelte-gantt:
+        specifier: 2.0.0-beta-3
+        version: 2.0.0-beta-3
+      wx-svelte-grid:
+        specifier: 2.0.0-beta-3
+        version: 2.0.0-beta-3
+      wx-svelte-menu:
+        specifier: 2.0.0-beta-2
+        version: 2.0.0-beta-2
+      wx-svelte-toolbar:
+        specifier: 2.0.0-beta-2
+        version: 2.0.0-beta-2
     devDependencies:
       '@electron-toolkit/tsconfig':
         specifier: ^1.0.1
@@ -1306,6 +1324,9 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+
+  date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
 
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
@@ -2895,6 +2916,69 @@ packages:
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
+  wx-core-locales@2.0.0-beta-2:
+    resolution: {integrity: sha512-UCvNOULooLXcV2mh4j9T7zwqzFY5Q1uqkafN1ud5SjmL+VW1VKdMZLhst5gAs0FB/zQ3h1mHhUkv7MjtxyUI0Q==}
+
+  wx-filemanager-data-provider@2.0.0-beta-3:
+    resolution: {integrity: sha512-Fa3GpNsIpTaQQ35iFcPiD5ryRNWiCpkDEvdxIW+FCgyOh1eON0TM8VjgNRT/bMnzAiHQo1liGTulmSVy6haQxQ==}
+
+  wx-filemanager-locales@2.0.0-beta-3:
+    resolution: {integrity: sha512-9ZNTHlj8sDm3KOBYktfU+HAMf0cWkNV/R0bpYAlj43BzN0K6CAkAg5VBJdbPAIRdR0xgwXz0fNhllQ1Y8CYU+A==}
+
+  wx-filemanager-store@2.0.0-beta-3:
+    resolution: {integrity: sha512-K+PrUK2e0IKDNfVf3unHky3zo/uTURVBFqNiat0cpXpzqmVCKmAPJHCxHjPsuo3KcsFh9SA972vm4OZDQ4b2Tw==}
+
+  wx-gantt-data-provider@2.0.0-beta-3:
+    resolution: {integrity: sha512-Sig0f3paAOEJIGsvCWo9i1LtXFqUc+y54qxLlsGWnIndHjLN7hhDbzL8N58fC5uHnw8EAxW4ep97WD/O/jxXlA==}
+
+  wx-gantt-locales@2.0.0-beta-3:
+    resolution: {integrity: sha512-uEah8hZx/Qralt9D2aotNQT6R9CiLuP+jXSTj8qQbzYTJsoCga0h7VT2bQho0Mwc6TjJ2thHC2p7Z7lh7B6xIA==}
+
+  wx-gantt-store@2.0.0-beta-3:
+    resolution: {integrity: sha512-zmyiQCJFOeYMoqBs1R0sH4Rnh/4o4RBNrLjFFUYhpnT14gJ89o1f1g8tDfWzKIeGGnrCyQ+oBdNTEzmOvV0w/g==}
+
+  wx-grid-data-provider@2.0.0-beta-3:
+    resolution: {integrity: sha512-MXks7x4DRQWBp+uS2t0JKhrAsemu3ScP+IHfUQZRUkeB6uh3h/o9bUpFVWT6dr441MZYDCCnFP0b1GsJAS/Ksw==}
+
+  wx-grid-locales@2.0.0-beta-3:
+    resolution: {integrity: sha512-0ZIQU2YmYOGc0lpCmdxm4Srr+N54+NDP400Sp2yVr0GlUNA7JHatqk4EgKHjdVONdQF0a+YRKiHGWpUHKaLMyA==}
+
+  wx-grid-store@2.0.0-beta-3:
+    resolution: {integrity: sha512-1u1eQwHuWiJfCTKYViHsbFwhwxdLJX3Feh/ITrCB+X6S36nn/h/oI/u+eSlYegKy8nAvvHoP+aLByYhw9FfTZA==}
+
+  wx-lib-data-provider@1.4.0:
+    resolution: {integrity: sha512-nlrryjpRhpm5GBcct2e7Gb9Mc4r4nv2xjDZnfTKhYeweAYldti+3qnbF+4KjEzNqFH48xqlcECGTi0Q6JnCvag==}
+
+  wx-lib-dom@0.6.0:
+    resolution: {integrity: sha512-uJ7BgHW5I8qhgKGcJTqG++9f2wKF6irL0rz/cawVo5DqcWe061M4wWKIHYXnJle4+wtpcPVeF2ASxIxJS1aGWQ==}
+
+  wx-lib-state@1.9.0:
+    resolution: {integrity: sha512-h2BeV/km+PH00pcHyUhyYJdY50vTBVtPzlA+b6idtoBiglUrP+ahmt9I6QvdKVoIPbIGh6EzqavDXuORucEy4g==}
+
+  wx-lib-svelte@0.4.0:
+    resolution: {integrity: sha512-62uJVUrdmUZj1wOTUlC1CUj+heaRjoCuPiRLBAzytweGUhZ0HqG2JDHUwWKEMqZNU55TyRy/BiJDi84kElfCeQ==}
+
+  wx-svelte-core@2.0.0-beta-2:
+    resolution: {integrity: sha512-lOIDNHQnR27v+4J0d6GoYiPt5XoExdP6zWzxb+7/A38OOlzocbXv/0lw0c8bi+myc++URGo4lQfIyKaSmKs7qQ==}
+
+  wx-svelte-filemanager@2.0.0-beta-3:
+    resolution: {integrity: sha512-vwCKq1NUPjk0ZzA+fLULBkuhlxDb6HBKneEkNVF2D84esNhvZlBxGL5Njt23REVk/1YP80GlV+pm5RskunbpSQ==}
+
+  wx-svelte-gantt@2.0.0-beta-3:
+    resolution: {integrity: sha512-Lh1xKwLx6GfAous4TAvvNJK0ZR8n8x4Pq8bsPshmuyb96xwSE6Jm5QDRvjME/t4lGdG7bmoPGuyCe7nrAZotDA==}
+
+  wx-svelte-grid@2.0.0-beta-3:
+    resolution: {integrity: sha512-P3owyykiQx8xnOIPQAv+5+aL00ZivQ4FuGpAkmo6Ku7YB6iK2LB5jyq5zFmfs442ejMkp0qD+D8BW3FUUCv2Rw==}
+
+  wx-svelte-menu@2.0.0-beta-2:
+    resolution: {integrity: sha512-RSd9/P2gNvMqUuPQQ9FXTDgLMF9DHLA0osyuyRtcEixOaJ2ilh6GSqHd0d6n+uppLx1OmCdxf5h9bNRVGMmXhg==}
+
+  wx-svelte-toolbar@2.0.0-beta-2:
+    resolution: {integrity: sha512-+H7WuTymElF3RwKJFiPDvDdR5MD2/Gm26jxNr62Xjpq4y6a3b5ufyfwSE9tB2lzkM1ERbFWrq+YdiL0bMK1RNw==}
+
+  wx-svelte-uploader@2.0.0-beta-2:
+    resolution: {integrity: sha512-GJ1mP1JMpMBI8mYfdc7z16eEmwqa7KsJ3POtGwUd/wUGdknd21KPmV16crRzdiU0rylP1aLIjqg9gFuUOrxYYQ==}
+
   xmlbuilder@15.1.1:
     resolution: {integrity: sha512-yMqGBqtXyeN1e3TGYvgNgDVZ3j84W4cwkOXQswghol6APgZWaff9lnbvN7MHYJOiXsvGPXtjTYJEiC9J2wv9Eg==}
     engines: {node: '>=8.0'}
@@ -4110,6 +4194,8 @@ snapshots:
       which: 2.0.2
 
   cssesc@3.0.0: {}
+
+  date-fns@3.6.0: {}
 
   debug@4.4.0:
     dependencies:
@@ -5746,6 +5832,104 @@ snapshots:
       strip-ansi: 7.1.0
 
   wrappy@1.0.2: {}
+
+  wx-core-locales@2.0.0-beta-2: {}
+
+  wx-filemanager-data-provider@2.0.0-beta-3:
+    dependencies:
+      wx-lib-data-provider: 1.4.0
+
+  wx-filemanager-locales@2.0.0-beta-3: {}
+
+  wx-filemanager-store@2.0.0-beta-3:
+    dependencies:
+      wx-lib-state: 1.9.0
+
+  wx-gantt-data-provider@2.0.0-beta-3:
+    dependencies:
+      wx-lib-data-provider: 1.4.0
+
+  wx-gantt-locales@2.0.0-beta-3: {}
+
+  wx-gantt-store@2.0.0-beta-3:
+    dependencies:
+      date-fns: 3.6.0
+      wx-lib-state: 1.9.0
+
+  wx-grid-data-provider@2.0.0-beta-3:
+    dependencies:
+      wx-lib-data-provider: 1.4.0
+
+  wx-grid-locales@2.0.0-beta-3: {}
+
+  wx-grid-store@2.0.0-beta-3:
+    dependencies:
+      wx-lib-state: 1.9.0
+
+  wx-lib-data-provider@1.4.0: {}
+
+  wx-lib-dom@0.6.0: {}
+
+  wx-lib-state@1.9.0: {}
+
+  wx-lib-svelte@0.4.0: {}
+
+  wx-svelte-core@2.0.0-beta-2:
+    dependencies:
+      wx-core-locales: 2.0.0-beta-2
+      wx-lib-dom: 0.6.0
+
+  wx-svelte-filemanager@2.0.0-beta-3:
+    dependencies:
+      wx-filemanager-data-provider: 2.0.0-beta-3
+      wx-filemanager-locales: 2.0.0-beta-3
+      wx-filemanager-store: 2.0.0-beta-3
+      wx-lib-dom: 0.6.0
+      wx-lib-state: 1.9.0
+      wx-lib-svelte: 0.4.0
+      wx-svelte-core: 2.0.0-beta-2
+      wx-svelte-grid: 2.0.0-beta-3
+      wx-svelte-menu: 2.0.0-beta-2
+      wx-svelte-uploader: 2.0.0-beta-2
+
+  wx-svelte-gantt@2.0.0-beta-3:
+    dependencies:
+      wx-gantt-data-provider: 2.0.0-beta-3
+      wx-gantt-locales: 2.0.0-beta-3
+      wx-gantt-store: 2.0.0-beta-3
+      wx-lib-dom: 0.6.0
+      wx-lib-state: 1.9.0
+      wx-lib-svelte: 0.4.0
+      wx-svelte-core: 2.0.0-beta-2
+      wx-svelte-grid: 2.0.0-beta-3
+      wx-svelte-menu: 2.0.0-beta-2
+      wx-svelte-toolbar: 2.0.0-beta-2
+
+  wx-svelte-grid@2.0.0-beta-3:
+    dependencies:
+      wx-grid-data-provider: 2.0.0-beta-3
+      wx-grid-locales: 2.0.0-beta-3
+      wx-grid-store: 2.0.0-beta-3
+      wx-lib-dom: 0.6.0
+      wx-lib-state: 1.9.0
+      wx-lib-svelte: 0.4.0
+      wx-svelte-core: 2.0.0-beta-2
+      wx-svelte-menu: 2.0.0-beta-2
+
+  wx-svelte-menu@2.0.0-beta-2:
+    dependencies:
+      wx-lib-dom: 0.6.0
+      wx-svelte-core: 2.0.0-beta-2
+
+  wx-svelte-toolbar@2.0.0-beta-2:
+    dependencies:
+      wx-lib-dom: 0.6.0
+      wx-svelte-core: 2.0.0-beta-2
+
+  wx-svelte-uploader@2.0.0-beta-2:
+    dependencies:
+      wx-lib-dom: 0.6.0
+      wx-svelte-core: 2.0.0-beta-2
 
   xmlbuilder@15.1.1: {}
 

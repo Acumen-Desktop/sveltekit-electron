@@ -1,15 +1,10 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import * as monaco from 'monaco-editor';
-	// @ts-expect-error
 	import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
-	// @ts-expect-error
 	import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
-	// @ts-expect-error
 	import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
-	// @ts-expect-error
 	import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker';
-	// @ts-expect-error
 	import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 
 	let editorContainer;
