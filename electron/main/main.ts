@@ -12,8 +12,10 @@ const loadURL = serve({
 async function createWindow(): Promise<void> {
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
-		width: 900,
-		height: 670,
+		x: 2048,
+		y: 0,
+		width: 1860,
+		height: 1100,
 		show: false,
 		autoHideMenuBar: true,
 		...(process.platform === 'linux' ? { icon } : {}),
@@ -33,6 +35,7 @@ async function createWindow(): Promise<void> {
 
 	// Show window when ready
 	mainWindow.show();
+	mainWindow.webContents.openDevTools();
 
 	// Handle external links
 	mainWindow.webContents.setWindowOpenHandler((details) => {

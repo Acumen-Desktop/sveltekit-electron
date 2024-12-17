@@ -1,10 +1,17 @@
-<script lang="ts">
+<script>
+	import MonacoEditor from '$lib/components/editor/MonacoEditor.svelte';
 </script>
 
-<main id="editor">
-	<h1>Editor</h1>
-	<a href="/" class="text-blue-500 underline"> Go back Home</a>
+<main>
+	<h1>Monaco Editor Test</h1>
+	<MonacoEditor />
 </main>
 
 <style>
+	main {
+		padding: 20px;
+	}
+	h1 {
+		color: #333;
+	}
 </style>
