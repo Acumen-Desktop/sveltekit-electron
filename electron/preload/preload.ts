@@ -25,6 +25,7 @@ const api = {
 		return await ipcRenderer.invoke('get-desktop-path');
 	},
 	getElectronFilesPath: async () => {
+		console.log(' Line 28: - Preload - getElectronFilesPath');
 		return await ipcRenderer.invoke('get-fap-electron-files-path');
 	}
 };
