@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import serve from 'electron-serve';
 import icon from '../../resources/icon.png?asset';
-import { getDesktopPath, getElectronFilesPath } from './utils/file-paths';
+import path from 'node:path';
 
 const loadURL = serve({
 	directory: 'out/svelte',
@@ -81,11 +81,12 @@ async function main() {
 		});
 
 		ipcMain.handle('get-desktop-path', () => {
-			return getDesktopPath();
+			return app.getPath('desktop');
 		});
 
 		ipcMain.handle('get-electron-files-path', () => {
-			return getElectronFilesPath();
+			// Adjust this path as needed for your specific use case
+			return path.join(app.getPath('userData'), 'electron-files');
 		});
 	} catch (error) {
 		console.error('Failed to initialize app:', error);

@@ -14,11 +14,11 @@ const api = {
 			console.error('Line 11 - preload.ts: Error calling main function:', error);
 		}
 	},
-	getDesktopPath: () => {
-		return ipcRenderer.invoke('get-desktop-path');
+	getDesktopPath: async () => {
+		return await ipcRenderer.invoke('get-desktop-path');
 	},
-	getElectronFilesPath: () => {
-		return ipcRenderer.invoke('get-electron-files-path');
+	getElectronFilesPath: async () => {
+		return await ipcRenderer.invoke('get-electron-files-path');
 	}
 };
 
@@ -39,3 +39,6 @@ contextBridge.exposeInMainWorld('electron', {
 		invoke: (channel: string, ...args: unknown[]) => ipcRenderer.invoke(channel, ...args)
 	}
 });
+
+// Add this to your existing preload.ts
+console.log('Line 44 Preload - Desktop Path:', process.env.HOME || process.env.USERPROFILE);

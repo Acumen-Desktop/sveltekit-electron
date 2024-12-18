@@ -1,15 +1,30 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import MonacoEditor from '$lib/components/editor/MonacoEditor.svelte';
 	import Filemanager from '$lib/components/editor/Filemanager.svelte';
 	import * as Resizable from '$lib/components/ui/resizable/index.js';
 
-	// const desktopPath = window.api.getDesktopPath();
-	// const electronFilesPath = window.api.getElectronFilesPath();
-	// console.log(
-	// 	'Line 8 - editor.svelte: desktopPath, electronFilesPath',
-	// 	desktopPath,
-	// 	electronFilesPath
-	// );
+	// Extend the existing API interface to include the new methods
+	interface ExtendedAPI {
+		preload: () => void;
+		main: () => Promise<void>;
+		getDesktopPath: () => Promise<string>;
+		getElectronFilesPath: () => Promise<string>;
+	}
+
+	async function testElectronFilesPath() {
+		try {
+			// Use type assertion with the extended interface
+			const desktopPath = await (window.api as ExtendedAPI).getDesktopPath();
+			const electronFilesPath = await (window.api as ExtendedAPI).getElectronFilesPath();
+
+			console.log('Line 19 - editor.svelte: Desktop Path:', desktopPath);
+			console.log('Line 20 - editor.svelte: Electron Files Path:', electronFilesPath);
+		} catch (error) {
+			console.error('Line 22 - editor.svelte: Error getting paths:', error);
+		}
+	}
+	onMount(testElectronFilesPath);
 </script>
 
 <header>

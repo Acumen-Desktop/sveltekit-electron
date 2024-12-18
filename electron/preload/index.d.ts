@@ -1,8 +1,10 @@
-import { ElectronAPI } from '@electron-toolkit/preload';
+// import { ElectronAPI } from '@electron-toolkit/preload';
 
 interface API {
-	getDesktopPath: () => string;
-	getElectronFilesPath: () => string;
+	preload: () => void;
+	main: () => Promise<void>;
+	getDesktopPath: () => Promise<string>;
+	getElectronFilesPath: () => Promise<string>;
 }
 
 declare global {
@@ -11,3 +13,5 @@ declare global {
 		api: API;
 	}
 }
+
+export {};
