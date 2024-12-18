@@ -1,6 +1,13 @@
 import { contextBridge, ipcRenderer } from 'electron';
-// import { join } from 'node:path';
-// import * as fs from 'node:fs';
+import type {
+	CreateFileOptions,
+	UpdateFileOptions,
+	RenameFileOptions,
+	ListDirectoryResponse,
+	ReadFileResponse,
+	WriteFileResponse,
+	FileOperationResult
+} from '../main/fileSystem/types';
 
 // API exposed to renderer process
 const api = {
@@ -18,12 +25,37 @@ const api = {
 		return await ipcRenderer.invoke('get-desktop-path');
 	},
 	getElectronFilesPath: async () => {
-		return await ipcRenderer.invoke('get-electron-files-path');
+		return await ipcRenderer.invoke('get-fap-electron-files-path');
 	}
 };
 
 // Expose the API to the renderer process
 contextBridge.exposeInMainWorld('api', api);
+
+// File System API
+const fileSystemApi = {
+	listDirectory: (path?: string): Promise<ListDirectoryResponse> => {
+		return ipcRenderer.invoke('fs:list-directory', path);
+	},
+	readFile: (path: string): Promise<ReadFileResponse> => {
+		return ipcRenderer.invoke('fs:read-file', path);
+	},
+	createFile: (options: CreateFileOptions): Promise<FileOperationResult> => {
+		return ipcRenderer.invoke('fs:create', options);
+	},
+	updateFile: (options: UpdateFileOptions): Promise<WriteFileResponse> => {
+		return ipcRenderer.invoke('fs:update', options);
+	},
+	deleteFile: (path: string): Promise<FileOperationResult> => {
+		return ipcRenderer.invoke('fs:delete', path);
+	},
+	renameFile: (options: RenameFileOptions): Promise<FileOperationResult> => {
+		return ipcRenderer.invoke('fs:rename', options);
+	}
+};
+
+// Expose APIs to renderer process
+contextBridge.exposeInMainWorld('fs', fileSystemApi);
 
 // Expose electron APIs if needed
 contextBridge.exposeInMainWorld('electron', {

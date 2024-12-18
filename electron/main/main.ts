@@ -4,6 +4,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import serve from 'electron-serve';
 import icon from '../../resources/icon.png?asset';
 import path from 'node:path';
+import { registerFileSystemHandlers } from './fileSystem/ipc';
 
 const loadURL = serve({
 	directory: 'out/svelte',
@@ -52,6 +53,9 @@ async function main() {
 		// Set app user model id for windows
 		electronApp.setAppUserModelId('com.electron');
 
+		// Register file system handlers
+		registerFileSystemHandlers();
+
 		// Default open or close DevTools by F12 in development
 		// and ignore CommandOrControl + R in production.
 		app.on('browser-window-created', (_, window) => {
@@ -84,9 +88,9 @@ async function main() {
 			return app.getPath('desktop');
 		});
 
-		ipcMain.handle('get-electron-files-path', () => {
+		ipcMain.handle('get-fap-electron-files-path', () => {
 			// Adjust this path as needed for your specific use case
-			return path.join(app.getPath('userData'), 'electron-files');
+			return path.join(app.getPath('userData'), 'fap-electron-files');
 		});
 	} catch (error) {
 		console.error('Failed to initialize app:', error);

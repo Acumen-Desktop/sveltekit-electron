@@ -11,7 +11,7 @@ export function getDesktopPath(): string {
 
 export function getElectronFilesPath(): string {
 	const desktopPath = getDesktopPath();
-	const electronFilesPath = join(desktopPath, 'electron-files');
+	const electronFilesPath = join(desktopPath, 'fap-electron-files');
 
 	// Ensure the directory exists
 	if (!fs.existsSync(electronFilesPath)) {

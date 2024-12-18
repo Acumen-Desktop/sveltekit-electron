@@ -7,24 +7,24 @@
 	import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker';
 	import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 
-	let editorContainer;
-	let editor;
+	let editorContainer: HTMLElement;
+	let editor: monaco.editor.IStandaloneCodeEditor | null = null;
 
 	self.MonacoEnvironment = {
-		getWorker(_, label) {
+		getWorker(_moduleId: string, label: string): Worker {
 			if (label === 'json') {
-				return new jsonWorker();
+				return new (jsonWorker as unknown as WorkerConstructor)();
 			}
 			if (label === 'css' || label === 'scss' || label === 'less') {
-				return new cssWorker();
+				return new (cssWorker as unknown as WorkerConstructor)();
 			}
 			if (label === 'html' || label === 'handlebars' || label === 'razor') {
-				return new htmlWorker();
+				return new (htmlWorker as unknown as WorkerConstructor)();
 			}
 			if (label === 'typescript' || label === 'javascript') {
-				return new tsWorker();
+				return new (tsWorker as unknown as WorkerConstructor)();
 			}
-			return new editorWorker();
+			return new (editorWorker as unknown as WorkerConstructor)();
 		}
 	};
 
@@ -43,6 +43,8 @@
 			}
 		};
 	});
+
+	type WorkerConstructor = new () => Worker;
 </script>
 
 <main id="monaco-editor" bind:this={editorContainer}></main>
