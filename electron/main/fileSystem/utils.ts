@@ -5,7 +5,7 @@ import type { FileOperationResult } from '../../../src/lib/types/fileSystemTypes
 
 // Get the base directory for all file operations
 export const getBaseDirectory = (): string => {
-	return path.join(app.getPath('userData'), 'fap-electron-files');
+	return path.join(app.getPath('desktop'), 'fap-electron-files');
 };
 
 // Ensure base directory exists
@@ -21,7 +21,17 @@ export const ensureBaseDirectory = async (): Promise<void> => {
 // Validate and resolve path (ensure it's within base directory)
 export const resolveSafePath = (requestedPath: string): FileOperationResult<string> => {
 	const baseDir = getBaseDirectory();
-	const absolutePath = path.resolve(baseDir, requestedPath);
+	// If requestedPath is empty, return the base directory
+	if (!requestedPath) {
+		return {
+			success: true,
+			data: baseDir
+		};
+	}
+
+	const absolutePath = path.isAbsolute(requestedPath)
+		? requestedPath
+		: path.resolve(baseDir, requestedPath);
 
 	// Ensure the resolved path is within the base directory
 	if (!absolutePath.startsWith(baseDir)) {

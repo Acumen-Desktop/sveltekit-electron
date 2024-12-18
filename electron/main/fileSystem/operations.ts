@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { app } from 'electron';
 import type {
 	FileInfo,
 	FileOperationResult,
@@ -10,18 +11,30 @@ import type {
 	UpdateFileOptions,
 	RenameFileOptions
 } from '../../../src/lib/types/fileSystemTypes';
-import { resolveSafePath, pathExists, formatError, ensureBaseDirectory } from './utils';
+import { resolveSafePath, pathExists, formatError } from './utils';
+
+// Get the base directory for all file operations
+const getBaseDirectory = (): string => {
+	return path.join(app.getPath('desktop'), 'fap-electron-files');
+};
+
+// Ensure base directory exists
+const ensureBaseDirectory = async (): Promise<void> => {
+	const baseDir = getBaseDirectory();
+	try {
+		await fs.access(baseDir);
+	} catch {
+		await fs.mkdir(baseDir, { recursive: true });
+	}
+};
 
 // Get file info
 async function getFileInfo(absolutePath: string): Promise<FileInfo> {
 	const stats = await fs.stat(absolutePath);
-	const baseDir = resolveSafePath('');
-	if (!baseDir.success || !baseDir.data) {
-		throw new Error('Failed to resolve base directory');
-	}
+	const baseDir = getBaseDirectory();
 	return {
 		name: path.basename(absolutePath),
-		path: path.relative(baseDir.data, absolutePath),
+		path: path.relative(baseDir, absolutePath),
 		type: stats.isDirectory() ? 'folder' : 'file',
 		size: stats.size,
 		modifiedAt: stats.mtime,

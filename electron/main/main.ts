@@ -53,6 +53,15 @@ async function main() {
 		// Set app user model id for windows
 		electronApp.setAppUserModelId('com.electron');
 
+		// Register IPC handlers
+		ipcMain.handle('get-desktop-path', () => {
+			return app.getPath('desktop');
+		});
+
+		ipcMain.handle('get-fap-electron-files-path', () => {
+			return path.join(app.getPath('desktop'), 'fap-electron-files');
+		});
+
 		// Register file system handlers
 		registerFileSystemHandlers();
 
@@ -82,15 +91,6 @@ async function main() {
 		ipcMain.handle('main-function', () => {
 			console.log('Line 58 - main.ts: Function called from renderer process via IPC');
 			return Promise.resolve(); // Return a promise to properly handle async operation
-		});
-
-		ipcMain.handle('get-desktop-path', () => {
-			return app.getPath('desktop');
-		});
-
-		ipcMain.handle('get-fap-electron-files-path', () => {
-			// Adjust this path as needed for your specific use case
-			return path.join(app.getPath('userData'), 'fap-electron-files');
 		});
 	} catch (error) {
 		console.error('Failed to initialize app:', error);
