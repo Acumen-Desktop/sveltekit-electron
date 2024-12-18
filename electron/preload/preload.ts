@@ -7,7 +7,7 @@ import type {
 	ReadFileResponse,
 	WriteFileResponse,
 	FileOperationResult
-} from '../main/fileSystem/types';
+} from '../../src/lib/types/fileSystemTypes';
 
 // API exposed to renderer process
 const api = {

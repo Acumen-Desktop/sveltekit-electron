@@ -7,7 +7,11 @@ import {
 	deleteFile,
 	renameFile
 } from './operations';
-import type { CreateFileOptions, UpdateFileOptions, RenameFileOptions } from './types';
+import type {
+	CreateFileOptions,
+	UpdateFileOptions,
+	RenameFileOptions
+} from '../../../src/lib/types/fileSystemTypes';
 
 export function registerFileSystemHandlers(): void {
 	// List directory contents

@@ -1,7 +1,7 @@
 import { app } from 'electron';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import type { FileOperationResult } from './types';
+import type { FileOperationResult } from '../../../src/lib/types/fileSystemTypes';
 
 // Get the base directory for all file operations
 export const getBaseDirectory = (): string => {

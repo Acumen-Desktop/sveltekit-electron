@@ -9,7 +9,7 @@ import type {
 	CreateFileOptions,
 	UpdateFileOptions,
 	RenameFileOptions
-} from './types';
+} from '../../../src/lib/types/fileSystemTypes';
 import { resolveSafePath, pathExists, formatError, ensureBaseDirectory } from './utils';
 
 // Get file info

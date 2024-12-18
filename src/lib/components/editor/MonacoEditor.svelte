@@ -15,7 +15,7 @@
 	// Props
 	export let path: string | null = null;
 	export let content = '';
-	export let language = 'plaintext';
+	export const language = 'plaintext';
 	export let readOnly = false;
 
 	// Event dispatcher

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Filemanager } from 'wx-svelte-filemanager';
-	import type { FileInfo } from '../../../electron/main/fileSystem/types';
+	import type { FileInfo } from '$lib/types/fileSystemTypes';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher<{
